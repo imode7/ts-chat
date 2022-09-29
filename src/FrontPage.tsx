@@ -1,12 +1,19 @@
 import React from "react";
+import "./css/frontPage.css";
 
 const chatJson = [
-  { roomName: "SCADA web", chatMember: ["명훈", "화희"], date: "20220922" },
-  { roomName: "SCADA ", chatMember: ["명훈", "화희"], date: "20220922" },
-  { roomName: "메론", chatMember: ["명훈", "화희"], date: "20220922" },
-  { roomName: "놀자", chatMember: ["명훈", "화희"], date: "20220922" },
-  { roomName: "집에가고싶다", chatMember: ["명훈", "화희"], date: "20220922" },
-  { roomName: "모하니", chatMember: ["명훈", "화희"], date: "20220922" },
+  { roomName: "SCADA web", chatMember: ["명훈", "화희"], date: "17:11" },
+  { roomName: "SCADA ", chatMember: ["명훈", "화희"], date: "20:20" },
+  { roomName: "메론", chatMember: ["명훈", "화희"], date: "03:12" },
+  { roomName: "놀자", chatMember: ["명훈", "화희"], date: "조금전" },
+  { roomName: "집에가고싶다", chatMember: ["명훈", "화희"], date: "10분전" },
+  { roomName: "모하니", chatMember: ["명훈", "화희"], date: "1시간전" },
+  { roomName: "SCADA web", chatMember: ["명훈", "화희"], date: "17:11" },
+  { roomName: "SCADA ", chatMember: ["명훈", "화희"], date: "20:20" },
+  { roomName: "메론", chatMember: ["명훈", "화희"], date: "03:12" },
+  { roomName: "놀자", chatMember: ["명훈", "화희"], date: "조금전" },
+  { roomName: "집에가고싶다", chatMember: ["명훈", "화희"], date: "10분전" },
+  { roomName: "모하니", chatMember: ["명훈", "화희"], date: "1시간전" },
 ];
 
 const FrontPage = () => {
@@ -19,26 +26,73 @@ const FrontPage = () => {
           display: "flex",
         }}
       >
-        <div style={{ width: "25%", display: "flex" }}>
-          <div style={{ width: "20%" }}>picture</div>
-          <div style={{ width: "80%" }}>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-              }}
-            >
-              <span>roomName</span>
-              <span>date</span>
-            </div>
-            <div>chat</div>
-          </div>
-          {/*{chatJson.map((param) => {
-            return param.roomName;
-          })}*/}
+        {/* 왼쪽 전체 목록창 */}
+        <div
+          style={{
+            width: "25%",
+            display: "flex",
+            flexDirection: "column",
+            overflow: "auto",
+          }}
+        >
+          {/* 개별 채팅방들 */}
+          {chatJson.map((param, idx) => {
+            return (
+              <ul
+                key={idx}
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  height: "10vh",
+                  margin: 0,
+                  padding: 0,
+                }}
+              >
+                <div
+                  style={{
+                    width: "20%",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <img
+                    src="/image/profile.jpg"
+                    alt=""
+                    style={{ overflow: "hidden", borderRadius: "50%" }}
+                  />
+                </div>
+                <div
+                  style={{
+                    width: "80%",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      height: "30px",
+                    }}
+                  >
+                    <p style={{ fontSize: "1em" }}>{param.roomName}</p>
+                    <p>{param.date}</p>
+                  </div>
+                  <div>
+                    <p>오늘도 밥먹었습니다앙</p>
+                  </div>
+                </div>
+              </ul>
+            );
+          })}
         </div>
         <div
-          style={{ width: "75%", backgroundImage: "url(/image/pattern.svg)" }}
+          className="background"
+          style={{
+            width: "75%",
+            backgroundSize: "500px",
+          }}
         ></div>
       </div>
     </>
