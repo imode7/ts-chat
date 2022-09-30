@@ -24,3 +24,8 @@ body {
     background-image: url('https://cdn2.iconfinder.com/data/icons/network-communications-glyph/32/send_message_telegram_paperplane_plane-512.png');
     background-size: contain;
 }
+
+ul:hover {
+    background: silver;
+    cursor: pointer;
+}

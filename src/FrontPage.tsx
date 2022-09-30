@@ -1,7 +1,15 @@
 import React from "react";
 
 const chatJson = [
-  { roomName: "SCADA web", chatMember: ["명훈", "화희"], date: "17:11" },
+  {
+    roomName: "SCADA web",
+    chatMember: ["명훈", "화희"],
+    date: "17:11",
+    chat: [
+      { talker: "명훈", context: "오늘 밥 먹었니?" },
+      { talker: "화희", context: "응 나는 밥 먹었어" },
+    ],
+  },
   { roomName: "SCADA ", chatMember: ["명훈", "화희"], date: "20:20" },
   { roomName: "메론", chatMember: ["명훈", "화희"], date: "03:12" },
   { roomName: "놀자", chatMember: ["명훈", "화희"], date: "조금전" },
@@ -12,10 +20,25 @@ const chatJson = [
   { roomName: "메론", chatMember: ["명훈", "화희"], date: "03:12" },
   { roomName: "놀자", chatMember: ["명훈", "화희"], date: "조금전" },
   { roomName: "집에가고싶다", chatMember: ["명훈", "화희"], date: "10분전" },
-  { roomName: "모하니", chatMember: ["명훈", "화희"], date: "1시간전" },
+  {
+    roomName: "모하니",
+    chatMember: ["명훈", "화희"],
+    date: "1시간전",
+  },
 ];
 
+interface RoomInfo {
+  roomName: string;
+  chatMember: string[];
+  chat?: object[];
+  date: string;
+}
+
 const FrontPage = () => {
+  function getRoomInfo(param: RoomInfo) {
+    console.log(param);
+  }
+
   return (
     <>
       <div
@@ -35,10 +58,11 @@ const FrontPage = () => {
           }}
         >
           {/* 개별 채팅방들 */}
-          {chatJson.map((param, idx) => {
+          {chatJson.map((param: RoomInfo, idx) => {
             return (
               <ul
                 key={idx}
+                onClick={() => getRoomInfo(param)}
                 style={{
                   display: "flex",
                   height: "10vh",
@@ -96,6 +120,7 @@ const FrontPage = () => {
           }}
         >
           <div
+            id="chatArea"
             style={{
               display: "flex",
               height: "90vh",
@@ -104,7 +129,7 @@ const FrontPage = () => {
               backgroundColor: "mediumaquamarine",
             }}
           >
-            Chat
+            chatData
           </div>
           <div
             style={{
