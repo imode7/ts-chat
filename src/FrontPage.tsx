@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const chatJson = [
   {
@@ -35,8 +35,15 @@ interface RoomInfo {
 }
 
 const FrontPage = () => {
+  const [chatRoom, setChatRoom] = useState<RoomInfo>({
+    roomName: "",
+    chatMember: [],
+    chat: [{}],
+    date: "",
+  });
+
   function getRoomInfo(param: RoomInfo) {
-    console.log(param);
+    setChatRoom(param);
   }
 
   return (
