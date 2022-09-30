@@ -1,5 +1,4 @@
 import React from "react";
-import "./css/frontPage.css";
 
 const chatJson = [
   { roomName: "SCADA web", chatMember: ["명훈", "화희"], date: "17:11" },
@@ -42,10 +41,9 @@ const FrontPage = () => {
                 key={idx}
                 style={{
                   display: "flex",
-                  width: "100%",
                   height: "10vh",
                   margin: 0,
-                  padding: 0,
+                  padding: "0px 10px 0px 10px",
                 }}
               >
                 <div
@@ -90,10 +88,73 @@ const FrontPage = () => {
         <div
           className="background"
           style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
             width: "75%",
             backgroundSize: "500px",
           }}
-        ></div>
+        >
+          <div
+            style={{
+              display: "flex",
+              height: "90vh",
+              margin: "1% 20% 1% 20%",
+              justifyContent: "center",
+              backgroundColor: "mediumaquamarine",
+            }}
+          >
+            Chat
+          </div>
+          <div
+            style={{
+              display: "flex",
+              margin: "1% 20% 1% 20%",
+              // height: "10vh",
+              justifyContent: "center",
+            }}
+          >
+            {/*채팅 흰박스*/}
+            <div
+              contentEditable="true"
+              style={{
+                display: "flex",
+                width: "100%",
+                height: "5vh",
+                alignItems: "center",
+                backgroundColor: "white",
+                overflow: "auto",
+                borderRadius: "10px",
+                marginRight: "10px",
+              }}
+            ></div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                backgroundColor: "#3390ec",
+                borderRadius: "50%",
+              }}
+            >
+              <button
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  border: 0,
+                  borderRadius: "50%",
+                  backgroundColor: "#3390ec",
+                }}
+                className={"backgroundImage"}
+              >
+                {/*<img
+                  src={"/image/mic.jpg"}
+                  alt=""
+                  style={{ width: "20px", height: "20px" }}
+                />*/}
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
